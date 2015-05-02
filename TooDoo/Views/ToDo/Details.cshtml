@@ -1,0 +1,20 @@
+﻿@model TooDoo.Model.ToDoItem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<h2><i class="fa fa-check"></i> Task Details</h2>
+
+@Html.Partial("_DetailsPartial", Model)
+
+<br />
+@if (Request.IsAuthenticated){
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TodoItemId }, new { @class = "btn btn-primary btn-lg" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.TodoItemId }, new { @class = "btn btn-danger btn-lg" }) 
+    </p>
+}
+
+@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })

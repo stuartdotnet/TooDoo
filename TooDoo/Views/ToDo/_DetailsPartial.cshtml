@@ -1,0 +1,61 @@
+﻿@model TooDoo.Model.ToDoItem
+
+@{
+    string color = string.Empty;
+
+    // Set color of Due Date to red if late
+    if (Model != null)
+    {
+        color = Model.DueDate < DateTime.Now && !Model.IsDone ? "red" : string.Empty;
+    }
+}
+
+<div class="strong col-md-2 form-label">
+    @Html.DisplayNameFor(model => model.Title)
+</div>
+
+<div class="col-md-10 large-text">
+    @Html.DisplayFor(model => model.Title)
+</div>
+
+<div class="clear"></div>
+
+<div class="strong col-md-2 form-label">
+    @Html.DisplayNameFor(model => model.Details)
+</div>
+
+<div class="col-md-10 large-text">
+    @Html.Raw(Html.DisplayFor(model => model.Details).ToString().Replace(Environment.NewLine, "<br/>"))
+</div>
+
+<div class="clear"></div>
+
+<div class="strong col-md-2 form-label">
+    @Html.DisplayNameFor(model => model.DueDate)
+</div>
+
+<div class="col-md-10 large-text @color">
+    @Html.DisplayFor(model => model.DueDate)
+</div>
+
+<div class="clear"></div>
+
+<div class="strong control-label col-md-2 form-label">
+    @Html.DisplayNameFor(model => model.Completed)
+</div>
+
+<div class="col-md-10 large-text">
+    @Html.DisplayFor(model => model.Completed)
+</div>
+
+<div class="clear"></div>
+
+<div class="strong control-label col-md-2 form-label">
+    @Html.DisplayNameFor(model => model.IsDone)
+</div>
+
+<div class="col-md-10 large-text">
+    @Html.DisplayFor(model => model.IsDone)
+</div>
+
+<div class="clear"></div>

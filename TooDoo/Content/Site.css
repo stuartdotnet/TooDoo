@@ -1,0 +1,132 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-group {
+    clear: both;
+}
+
+.form-label {
+    font-size: 1.8em;
+    margin: 0.2em 0;
+}
+
+.text-box {
+    font-size: 2em;
+    margin: 0.2em;
+}
+
+.check-box {
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+}
+
+.large-check {
+    -ms-transform: scale(4); /* IE */
+    -moz-transform: scale(4); /* FF */
+    -webkit-transform: scale(4); /* Safari and Chrome */
+    -o-transform: scale(4); /* Opera */
+}
+
+.check-box-div {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    clear: both;
+}
+
+.check-box-div-s {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+textarea {
+    margin-left: 6px;
+    width: 310px;
+    height: 5em;
+    font-size: 2em;
+}
+
+.clear {
+    clear: both;
+}
+
+.large-text {
+    font-size: 1.8em;
+}
+
+.strong {
+    font-weight: 700;
+}
+
+.green {
+    color: #007e00;
+}
+
+.red {
+    color: #dc0000;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.no-strikethrough {
+    text-decoration: none;
+}
+.details:hover {    
+    cursor: pointer;
+}
+
+.table > tbody > tr > td {
+    width: 16.6666666667%;
+}

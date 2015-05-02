@@ -1,0 +1,13 @@
+﻿@model bool?
+
+@if (Model != null) {
+    if (Model == true) {
+        <span class="green">Yes</span>
+    }
+    else {
+        <span class="red">No</span>
+    }
+}
+else {
+    <span>Not Set</span>
+}

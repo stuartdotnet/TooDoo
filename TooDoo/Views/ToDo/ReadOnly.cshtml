@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TooDoo.Model.ToDoItem>
+@using TooDoo.Helpers;
+
+@{
+    ViewBag.Title = "All Tasks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string done = string.Empty;
+    string alertType = string.Empty;
+    string hidden = string.Empty;
+    string resultText = string.Empty;
+    string highlight = string.Empty;
+    
+    if (TempData["Success"] != null){
+        alertType = (bool)TempData["Success"] ? "alert-success" : "alert-danger";
+    }
+    else
+    {
+        hidden = "hidden";      
+    }
+    
+    if (TempData["ResultText"] != null) {
+        resultText = TempData["ResultText"].ToString();
+    }
+}
+
+<h2><i class="fa fa-check-square-o"></i> Tasks</h2>
+
+<div class="alert @alertType @hidden">@resultText</div>
+
+
+@if (Model != null && Model.Any()) {
+    <table class="table table-hover table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>           
+        </tr>
+
+        @foreach (var item in Model)
+{
+    done = "no-strikethrough";
+
+    // Apply StrikeThrough Class if Done
+    if (item.IsDone)
+    {
+        done = "done";
+    }
+
+    highlight = item.DueDate < DateTime.Now && !item.IsDone ? "danger" : string.Empty;
+
+    <tr id="@item.TodoItemId" class="@highlight">
+        <td class="large-text @done details">
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="@done details">
+            @Html.Raw(Html.DisplayFor(modelItem => item.Details)
+                 .ToString()
+                 .ToShortenedString(50)
+                 .Replace(Environment.NewLine, "<br />"))
+
+        </td>
+        <td class="@done details">
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+       
+    </tr>
+}
+
+    </table>
+
+}
+
+else {
+    <div class="jumbotron">No Tasks.</div>
+}
